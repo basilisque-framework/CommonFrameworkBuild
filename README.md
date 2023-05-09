@@ -22,18 +22,17 @@ This project provides common build configuration for all parts of the Basilisque
 It is __NOT__ recommended to use this unless you're developing a part of the framework.
 
 ## Description
-This project doesn't contain any assemblies that will be deployed with the target project. Instead it only contains build time configuration (.props/.targets-files) to provide all projects of the Basilisque framework with a common basic set of configuration.  
-It implicitly adds a dependency to [Basilisque.CommonBuild](https://github.com/basilisque-framework/CommonFrameworkBuild) to the target project. So the configuration provided by that project will also be applied.  
+This project doesn't contain any assemblies that will be deployed with the target project. Instead it only contains build time configuration (.props/.targets-files, ...) to provide all projects of the Basilisque framework with a common basic set of configuration.  
+It implicitly adds a dependency to [Basilisque.CommonBuild](https://github.com/basilisque-framework/CommonBuild) to the target project. So the configuration provided by that project will also be applied.  
 
 ### Usage
 Install the [NuGet package](https://www.nuget.org/packages/Basilisque.CommonFrameworkBuild)  
 This will automatically include the contained .props and .targets files in the build.
-
+<!--
 ### Conventions
 The configuration is based on conventions regarding the names of the target projects. _(The folder structure of the solution is irrelevant.)_
 
 >__ExampleSolution__
-<!--
 >- MyProject.[__Service__](#servicesConfig)  
 >_<sup>Containing the startup code of a backend (Windows) service<sup>_
 >- MyProject.Service.[__Tests__](#testsConfig)  
@@ -52,31 +51,33 @@ The configuration is based on conventions regarding the names of the target proj
 >_<sup>Containing automated tests. In this case for the MyProject.DataAccess-project<sup>_
 >- MyProject.[__Benchmarks__](#benchmarksConfig)  
 >_<sup>Containing benchmarks for a project<sup>_
--->
-Obviously not all applications need all of those project types. So e.g. if you don't need data access, then just do not create a project named like it. But if you do need data access, then let the project name end with _.DataAccess_. That is the intention behind the configuration in Basilisque.CommonFrameworkBuild.
+>- MyProject.[__CodeAnalysis__](#codeAnalysisConfig)  
+>_<sup>Containing code analysis support for the project like source generators, analyzers and fixes<sup>_
 
+Obviously not all applications need all of those project types. So e.g. if you don't need data access, then just do not create a project named like it. But if you do need data access, then let the project name end with _.DataAccess_. That is the intention behind the configuration in Basilisque.CommonFrameworkBuild.
+-->
 ### Provided Configuration
 __.props / .targets__  
 - <a name="generalConfig"></a>__General__ (for all project types)
-  | Property 	| Value 	| Remark |
-  |----------	|------- | --- |
-  | RootNamespace | Basilisque.\<ProjectName\>  | Spaces will be replaced by an underscore   |
-  | AssemblyName  | Basilisque.\<ProjectName\>  | not for .Benchmarks-projects because of https://github.com/dotnet/BenchmarkDotNet/issues/498   |
-  | Authors	| Alexander Stärk |  |
-  | 	|  |  |
+  | Property 	   | Value 	                     | Remark                                                                                        |
+  |-------------- |---------------------------- | --------------------------------------------------------------------------------------------- |
+  | RootNamespace | Basilisque.\<ProjectName\>  | Spaces will be replaced by an underscore                                                      |
+  | AssemblyName  | Basilisque.\<ProjectName\>  | not for .Benchmarks-projects because of https://github.com/dotnet/BenchmarkDotNet/issues/498  |
+  | Authors	      | Alexander Stärk             |                                                                                               |
 <!--
-- <a name="servicesConfig"></a>Service
+- <a name="servicesConfig"></a>__*.Service__
    - ???
-- <a name="apiConfig"></a>API
+- <a name="apiConfig"></a>__*.API__
    - ???
-- <a name="domainConfig"></a>Domain
+- <a name="domainConfig"></a>__*.Domain__
    - ???
-- <a name="dataAccessConfig"></a>DataAccess
+- <a name="dataAccessConfig"></a>__*.DataAccess__
    - ???
-- <a name="testsConfig"></a>Tests
+- <a name="testsConfig"></a>__*.Tests__
    - ???
-- <a name="benchmarksConfig"></a>Benchmarks
+- <a name="benchmarksConfig"></a>__*.Benchmarks__
    - ???
+- <a name="codeAnalysisConfig"></a>__*.CodeAnalysis__
 -->
 
 If you don't want a specific property to be set, you can prevent it. For every property there is a corresponding flag that controls, if the property will be set or not.  
