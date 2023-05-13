@@ -20,13 +20,10 @@
 		<Description>This project provides common build configuration for all parts of the Basilisque framework. It is NOT recommended to use this unless you're developing a part of the framework.</Description>
 		<BAS_CB_Copyright_BeginYear>2023</BAS_CB_Copyright_BeginYear>
 		<PackageProjectUrl>https://github.com/basilisque-framework/CommonFrameworkBuild</PackageProjectUrl>
-		<PackageReleaseNotes>https://github.com/basilisque-framework/CommonFrameworkBuild/releases</PackageReleaseNotes>
 		<PackageTags>Basilisque Build</PackageTags>
-		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<!--<PackageIconUrl>images\icon.png</PackageIconUrl>-->
 		<!--<PackageIconUrl>https://github.com/basilisque-framework/CommonFrameworkBuild...raw...icon.png</PackageIconUrl>-->
 		<PackageReadmeFile>docs\README.md</PackageReadmeFile>
-		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<MinClientVersion>3.0</MinClientVersion>

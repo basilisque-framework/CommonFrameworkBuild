@@ -18,6 +18,9 @@
         <BAS_CFB_Set_RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == ''">true</BAS_CFB_Set_RootNamespace>
         <BAS_CFB_Set_AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == '' AND $(MSBuildProjectName.EndsWith('.Benchmarks'))!='true'">true</BAS_CFB_Set_AssemblyName>
         <BAS_CFB_Set_Authors Condition="'$(BAS_CFB_Set_Authors)' == ''">true</BAS_CFB_Set_Authors>
+		<BAS_CFB_Set_PackageReleaseNotes Condition="'$(BAS_CFB_Set_PackageReleaseNotes)' == ''">true</BAS_CFB_Set_PackageReleaseNotes>
+		<BAS_CFB_Set_PackageLicenseExpression Condition="'$(BAS_CFB_Set_PackageLicenseExpression)' == ''">true</BAS_CFB_Set_PackageLicenseExpression>
+		<BAS_CFB_Set_PackageRequireLicenseAcceptance Condition="'$(BAS_CFB_Set_PackageRequireLicenseAcceptance)' == ''">true</BAS_CFB_Set_PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <!-- general build properties -->
