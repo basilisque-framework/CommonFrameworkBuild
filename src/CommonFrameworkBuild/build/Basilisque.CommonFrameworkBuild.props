@@ -21,12 +21,14 @@
 		<BAS_CFB_Set_PackageReleaseNotes Condition="'$(BAS_CFB_Set_PackageReleaseNotes)' == ''">true</BAS_CFB_Set_PackageReleaseNotes>
 		<BAS_CFB_Set_PackageLicenseExpression Condition="'$(BAS_CFB_Set_PackageLicenseExpression)' == ''">true</BAS_CFB_Set_PackageLicenseExpression>
 		<BAS_CFB_Set_PackageRequireLicenseAcceptance Condition="'$(BAS_CFB_Set_PackageRequireLicenseAcceptance)' == ''">true</BAS_CFB_Set_PackageRequireLicenseAcceptance>
+		<BAS_CFB_Set_PackageId Condition="'$(BAS_CFB_Set_PackageId)' == '' AND '$(BAS_CFB_Set_AssemblyName)' == 'true'">true</BAS_CFB_Set_PackageId>
     </PropertyGroup>
 
     <!-- general build properties -->
 	<PropertyGroup>
 		<RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == 'true'">Basilisque.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 		<AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == 'true'">Basilisque.$(MSBuildProjectName)</AssemblyName>
+		<PackageId Condition="'$(BAS_CFB_Set_PackageId)' == 'true'">$(AssemblyName)</PackageId>
 	</PropertyGroup>
     
     <!-- NuGet package properties and project info -->

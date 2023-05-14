@@ -63,6 +63,7 @@ __.props / .targets__
   |-------------- |---------------------------- | --------------------------------------------------------------------------------------------- |
   | RootNamespace | Basilisque.\<ProjectName\>  | Spaces will be replaced by an underscore                                                      |
   | AssemblyName  | Basilisque.\<ProjectName\>  | not for .Benchmarks-projects because of https://github.com/dotnet/BenchmarkDotNet/issues/498  |
+  | PackageId     | \<AssemblyName\>            | will only be set when the AssemblyName is also being set                                      |
   | Authors	      | Alexander Stärk             |                                                                                               |
   | PackageReleaseNotes | \<PackageProjectUrl\>/releases    | will only be set when the PackageProjectUrl starts with https://github.com        |
   | PackageLicenseExpression  | Apache-2.0      |                                                                                               |
