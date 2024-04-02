@@ -13,7 +13,12 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 -->
-<Project>	
+<Project>
+	<!-- enable central package management versioning -->
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+	
 	<!-- define NuGet package versions -->
 	<ItemGroup>
 		<PackageVersion Include="Basilisque.CommonBuild" Version="[1.0.0-RC11,1.1)" />
