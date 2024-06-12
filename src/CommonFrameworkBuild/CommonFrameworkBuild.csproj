@@ -14,7 +14,7 @@
    limitations under the License.
 -->
 <Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="$(MSBuildThisFileDirectory)build\Basilisque.CommonFrameworkBuild.props" />
+	<Import Project="$(MSBuildThisFileDirectory)build/Basilisque.CommonFrameworkBuild.props" />
 	
   <PropertyGroup>
 		<Description>This project provides common build configuration for all parts of the Basilisque framework. It is NOT recommended to use this unless you're developing a part of the framework.</Description>
@@ -23,18 +23,19 @@
 		<PackageTags>Basilisque Build</PackageTags>
 		<!--<PackageIconUrl>images\icon.png</PackageIconUrl>-->
 		<!--<PackageIconUrl>https://github.com/basilisque-framework/CommonFrameworkBuild...raw...icon.png</PackageIconUrl>-->
-		<PackageReadmeFile>docs\README.md</PackageReadmeFile>
+		<PackageReadmeFile>docs/README.md</PackageReadmeFile>
 		
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<MinClientVersion>3.0</MinClientVersion>
+		<MinClientVersion>4.0</MinClientVersion>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\..\README.md" Pack="true" PackagePath="docs" />
-		<!--<None Include="..\icon.png" Pack="true" PackagePath="images" />-->
+		<None Include="../../README.md" Pack="true" PackagePath="docs" />
+		<!--<None Include="../icon.png" Pack="true" PackagePath="images" />-->
 		<None Include="build/**" Pack="true" PackagePath="build" />
+		<None Include="buildMultiTargeting/**" Pack="true" PackagePath="buildMultiTargeting" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -43,7 +44,7 @@
 	  </PackageReference>
 	</ItemGroup>
 	
-	<Import Project="$(MSBuildThisFileDirectory)build\Basilisque.CommonFrameworkBuild.targets" />
+	<Import Project="$(MSBuildThisFileDirectory)build/Basilisque.CommonFrameworkBuild.targets" />
 </Project>
 
 <!--

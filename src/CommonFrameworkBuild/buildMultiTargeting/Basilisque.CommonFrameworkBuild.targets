@@ -14,13 +14,11 @@
    limitations under the License.
 -->
 <Project>
-	<!-- enable central package management versioning -->
-	<PropertyGroup>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-	</PropertyGroup>
-	
-	<!-- define NuGet package versions -->
-	<ItemGroup>
-		<PackageVersion Include="Basilisque.CommonBuild" Version="[1.0.0-RC14,1.1)" />
-	</ItemGroup>
+	<!-- import the targets file that is shared between single and multi targeting builds -->
+	<Import Project="$(MSBuildThisFileDirectory)Basilisque.CommonFrameworkBuild.Before.Shared.targets" />
+
+
+
+	<!-- import the targets file that is shared between single and multi targeting builds -->
+	<Import Project="$(MSBuildThisFileDirectory)Basilisque.CommonFrameworkBuild.After.Shared.targets" />
 </Project>

@@ -1,5 +1,5 @@
 <!--
-   Copyright 2023 Alexander Stärk
+   Copyright 2023-2024 Alexander Stärk
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,29 +14,19 @@
    limitations under the License.
 -->
 <Project>
+	<!-- import the targets file that is shared between single and multi targeting builds -->
+	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.Before.Shared.targets" />
+	
     <!-- Log all properties that are set by the Basilisque.CommonFrameworkBuild project -->
     <Target Name="LogBasilisqueCommonFrameworkBuildProperties" AfterTargets="PrepareForBuild" Condition="'$(BAS_CFB_Log_Properties)' == 'true'">
-		<Message Importance="High" Text="==BAS_CFB_Properties==" />
+		<Message Importance="High" Text="==BAS_CFB_Properties - begin single targeting ($(MSBuildProjectName))==" />
         <Message Importance="High" Text="BAS_CFB_Set_RootNamespace = '$(BAS_CFB_Set_RootNamespace)'" />
         <Message Importance="High" Text="BAS_CFB_Set_AssemblyName = '$(BAS_CFB_Set_AssemblyName)'" />
-		<Message Importance="High" Text="BAS_CFB_Set_Authors = '$(BAS_CFB_Set_Authors)'" />
-		<Message Importance="High" Text="BAS_CFB_Set_PackageReleaseNotes = '$(BAS_CFB_Set_PackageReleaseNotes)'" />
-		<Message Importance="High" Text="BAS_CFB_Set_PackageLicenseExpression = '$(BAS_CFB_Set_PackageLicenseExpression)'" />
-		<Message Importance="High" Text="BAS_CFB_Set_PackageRequireLicenseAcceptance = '$(BAS_CFB_Set_PackageRequireLicenseAcceptance)'" />
-		<Message Importance="High" Text="BAS_CFB_Set_PackageId = '$(BAS_CFB_Set_PackageId)'" />
         <Message Importance="High" Text="RootNamespace = '$(RootNamespace)'" />
         <Message Importance="High" Text="AssemblyName = '$(AssemblyName)'" />
-		<Message Importance="High" Text="Authors = '$(Authors)'" />
-		<Message Importance="High" Text="PackageReleaseNotes = '$(PackageReleaseNotes)'" />
-		<Message Importance="High" Text="PackageLicenseExpression = '$(PackageLicenseExpression)'" />
-		<Message Importance="High" Text="PackageRequireLicenseAcceptance = '$(PackageRequireLicenseAcceptance)'" />
-		<Message Importance="High" Text="PackageId = '$(PackageId)'" />
-		<Message Importance="High" Text="==BAS_CFB_Properties==" />
+		<Message Importance="High" Text="==BAS_CFB_Properties - end single targeting ($(MSBuildProjectName))==" />
     </Target>
 
-	<PropertyGroup>
-		<PackageReleaseNotes Condition="'$(BAS_CFB_Set_PackageReleaseNotes)' == 'true' AND $(PackageProjectUrl.StartsWith('https://github.com')) == 'true'">$(PackageProjectUrl)/releases</PackageReleaseNotes>
-		<PackageLicenseExpression Condition="'$(BAS_CFB_Set_PackageLicenseExpression)' == 'true'">Apache-2.0</PackageLicenseExpression>
-		<PackageRequireLicenseAcceptance Condition="'$(BAS_CFB_Set_PackageRequireLicenseAcceptance)' == 'true'">true</PackageRequireLicenseAcceptance>
-	</PropertyGroup>
+	<!-- import the targets file that is shared between single and multi targeting builds -->
+	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.After.Shared.targets" />
 </Project>

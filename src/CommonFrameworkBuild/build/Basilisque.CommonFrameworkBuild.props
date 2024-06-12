@@ -1,5 +1,5 @@
 <!--
-   Copyright 2023 Alexander Stärk
+   Copyright 2023-2024 Alexander Stärk
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,25 +14,23 @@
    limitations under the License.
 -->
 <Project>
+	<PropertyGroup>
+		<BAS_CFB_Set_AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == '' AND $(MSBuildProjectName.EndsWith('.Benchmarks'))!='true'">true</BAS_CFB_Set_AssemblyName>
+	</PropertyGroup>
+	
+	<!-- import the props file that is shared between single and multi targeting builds -->
+	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.Before.Shared.props" />
+	
     <PropertyGroup>
         <BAS_CFB_Set_RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == ''">true</BAS_CFB_Set_RootNamespace>
-        <BAS_CFB_Set_AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == '' AND $(MSBuildProjectName.EndsWith('.Benchmarks'))!='true'">true</BAS_CFB_Set_AssemblyName>
-        <BAS_CFB_Set_Authors Condition="'$(BAS_CFB_Set_Authors)' == ''">true</BAS_CFB_Set_Authors>
-		<BAS_CFB_Set_PackageReleaseNotes Condition="'$(BAS_CFB_Set_PackageReleaseNotes)' == ''">true</BAS_CFB_Set_PackageReleaseNotes>
-		<BAS_CFB_Set_PackageLicenseExpression Condition="'$(BAS_CFB_Set_PackageLicenseExpression)' == ''">true</BAS_CFB_Set_PackageLicenseExpression>
-		<BAS_CFB_Set_PackageRequireLicenseAcceptance Condition="'$(BAS_CFB_Set_PackageRequireLicenseAcceptance)' == ''">true</BAS_CFB_Set_PackageRequireLicenseAcceptance>
-		<BAS_CFB_Set_PackageId Condition="'$(BAS_CFB_Set_PackageId)' == '' AND '$(BAS_CFB_Set_AssemblyName)' == 'true'">true</BAS_CFB_Set_PackageId>
     </PropertyGroup>
 
     <!-- general build properties -->
 	<PropertyGroup>
 		<RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == 'true'">Basilisque.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 		<AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == 'true'">Basilisque.$(MSBuildProjectName)</AssemblyName>
-		<PackageId Condition="'$(BAS_CFB_Set_PackageId)' == 'true'">$(AssemblyName)</PackageId>
 	</PropertyGroup>
-    
-    <!-- NuGet package properties and project info -->
-    <PropertyGroup>
-        <Authors Condition="'$(BAS_CFB_Set_Authors)' == 'true'">Alexander Stärk</Authors>
-    </PropertyGroup>
+
+	<!-- import the props file that is shared between single and multi targeting builds -->
+	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.After.Shared.props" />
 </Project>
