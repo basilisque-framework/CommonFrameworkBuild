@@ -14,11 +14,11 @@
    limitations under the License.
 -->
 <Project>
-	<!-- import the props file that is shared between single and multi targeting builds -->
-	<Import Project="$(MSBuildThisFileDirectory)Basilisque.CommonFrameworkBuild.Before.Shared.props" />
-
-
-
-	<!-- import the props file that is shared between single and multi targeting builds -->
-	<Import Project="$(MSBuildThisFileDirectory)Basilisque.CommonFrameworkBuild.After.Shared.props" />
+  <!-- import the props file that is shared between single and multi targeting builds -->
+  <Import Project="$(MSBuildThisFileDirectory)Basilisque.CommonFrameworkBuild.Before.Shared.props" />
+  
+  
+  
+  <!-- import the props file that is shared between single and multi targeting builds -->
+  <Import Project="$(MSBuildThisFileDirectory)Basilisque.CommonFrameworkBuild.After.Shared.props" />
 </Project>

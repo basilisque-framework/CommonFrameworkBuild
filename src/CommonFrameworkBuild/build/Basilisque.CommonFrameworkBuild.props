@@ -1,5 +1,5 @@
 <!--
-   Copyright 2023-2024 Alexander Stärk
+   Copyright 2023-2025 Alexander Stärk
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,24 +14,24 @@
    limitations under the License.
 -->
 <Project>
-	<!-- properties, that are being used in the shared .props -->
-	<PropertyGroup>
-		<BAS_CFB_Set_AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == '' AND $(MSBuildProjectName.EndsWith('.Benchmarks'))!='true'">true</BAS_CFB_Set_AssemblyName>
-		<AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == 'true'">Basilisque.$(MSBuildProjectName)</AssemblyName>
-	</PropertyGroup>
-	
-	<!-- import the props file that is shared between single and multi targeting builds -->
-	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.Before.Shared.props" />
-	
-    <PropertyGroup>
-        <BAS_CFB_Set_RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == ''">true</BAS_CFB_Set_RootNamespace>
-    </PropertyGroup>
-
-    <!-- general build properties -->
-	<PropertyGroup>
-		<RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == 'true'">Basilisque.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-	</PropertyGroup>
-
-	<!-- import the props file that is shared between single and multi targeting builds -->
-	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.After.Shared.props" />
+  <!-- properties, that are being used in the shared .props -->
+  <PropertyGroup>
+    <BAS_CFB_Set_AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == '' AND $(MSBuildProjectName.EndsWith('.Benchmarks'))!='true'">true</BAS_CFB_Set_AssemblyName>
+    <AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == 'true'">Basilisque.$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+  
+  <!-- import the props file that is shared between single and multi targeting builds -->
+  <Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.Before.Shared.props" />
+  
+  <PropertyGroup>
+      <BAS_CFB_Set_RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == ''">true</BAS_CFB_Set_RootNamespace>
+  </PropertyGroup>
+  
+  <!-- general build properties -->
+  <PropertyGroup>
+    <RootNamespace Condition="'$(BAS_CFB_Set_RootNamespace)' == 'true'">Basilisque.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+  
+  <!-- import the props file that is shared between single and multi targeting builds -->
+  <Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.After.Shared.props" />
 </Project>

@@ -1,5 +1,5 @@
 <!--
-   Copyright 2023-2024 Alexander Stärk
+   Copyright 2023-2025 Alexander Stärk
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,19 +14,19 @@
    limitations under the License.
 -->
 <Project>
-	<!-- import the targets file that is shared between single and multi targeting builds -->
-	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.Before.Shared.targets" />
-	
-    <!-- Log all properties that are set by the Basilisque.CommonFrameworkBuild project -->
-    <Target Name="LogBasilisqueCommonFrameworkBuildProperties" AfterTargets="PrepareForBuild" Condition="'$(BAS_CFB_Log_Properties)' == 'true'">
-		<Message Importance="High" Text="==BAS_CFB_Properties - begin single targeting ($(MSBuildProjectName))==" />
-        <Message Importance="High" Text="BAS_CFB_Set_RootNamespace = '$(BAS_CFB_Set_RootNamespace)'" />
-        <Message Importance="High" Text="BAS_CFB_Set_AssemblyName = '$(BAS_CFB_Set_AssemblyName)'" />
-        <Message Importance="High" Text="RootNamespace = '$(RootNamespace)'" />
-        <Message Importance="High" Text="AssemblyName = '$(AssemblyName)'" />
-		<Message Importance="High" Text="==BAS_CFB_Properties - end single targeting ($(MSBuildProjectName))==" />
-    </Target>
-
-	<!-- import the targets file that is shared between single and multi targeting builds -->
-	<Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.After.Shared.targets" />
+  <!-- import the targets file that is shared between single and multi targeting builds -->
+  <Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.Before.Shared.targets" />
+  
+  <!-- Log all properties that are set by the Basilisque.CommonFrameworkBuild project -->
+  <Target Name="LogBasilisqueCommonFrameworkBuildProperties" AfterTargets="PrepareForBuild" Condition="'$(BAS_CFB_Log_Properties)' == 'true'">
+    <Message Importance="High" Text="==BAS_CFB_Properties - begin single targeting ($(MSBuildProjectName))==" />
+    <Message Importance="High" Text="BAS_CFB_Set_RootNamespace = '$(BAS_CFB_Set_RootNamespace)'" />
+    <Message Importance="High" Text="BAS_CFB_Set_AssemblyName = '$(BAS_CFB_Set_AssemblyName)'" />
+    <Message Importance="High" Text="RootNamespace = '$(RootNamespace)'" />
+    <Message Importance="High" Text="AssemblyName = '$(AssemblyName)'" />
+    <Message Importance="High" Text="==BAS_CFB_Properties - end single targeting ($(MSBuildProjectName))==" />
+  </Target>
+  
+  <!-- import the targets file that is shared between single and multi targeting builds -->
+  <Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.After.Shared.targets" />
 </Project>
