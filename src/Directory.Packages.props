@@ -21,6 +21,6 @@
   
   <!-- define NuGet package versions -->
   <ItemGroup>
-    <PackageVersion Include="Basilisque.CommonBuild" Version="[1.0.0-RC14,1.1)" />
+    <PackageVersion Include="Basilisque.CommonBuild" Version="[1.0.0-RC23,1.1)" />
   </ItemGroup>
 </Project>
