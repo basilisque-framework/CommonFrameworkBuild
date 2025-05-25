@@ -15,6 +15,7 @@
 -->
 <Project>
   <PropertyGroup>
+    <BAS_CFB_Set_AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == '' AND $(MSBuildProjectName.EndsWith('.Benchmarks'))!='true'">true</BAS_CFB_Set_AssemblyName>
     <BAS_CFB_Set_Authors Condition="'$(BAS_CFB_Set_Authors)' == ''">true</BAS_CFB_Set_Authors>
     <BAS_CFB_Set_PackageReleaseNotes Condition="'$(BAS_CFB_Set_PackageReleaseNotes)' == ''">true</BAS_CFB_Set_PackageReleaseNotes>
     <BAS_CFB_Set_PackageLicenseExpression Condition="'$(BAS_CFB_Set_PackageLicenseExpression)' == ''">true</BAS_CFB_Set_PackageLicenseExpression>
@@ -24,6 +25,7 @@
   
   <!-- general build properties -->
   <PropertyGroup>
+    <AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == 'true'">Basilisque.$(MSBuildProjectName)</AssemblyName>
     <PackageId Condition="'$(BAS_CFB_Set_PackageId)' == 'true'">$(AssemblyName)</PackageId>
   </PropertyGroup>
   
