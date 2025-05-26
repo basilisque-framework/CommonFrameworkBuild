@@ -17,16 +17,16 @@
   <!-- Log all shared properties that are set by the Basilisque.CommonFrameworkBuild project -->
   <Target Name="LogBasilisqueCommonFrameworkBuildSharedProperties" AfterTargets="PrepareForBuild" Condition="'$(BAS_CFB_Log_Properties)' == 'true'">
     <Message Importance="High" Text="==BAS_CFB_Properties - begin shared ($(MSBuildProjectName))==" />
-    <Message Importance="High" Text="BAS_CFB_Set_Authors = '$(BAS_CFB_Set_Authors)'" />
-    <Message Importance="High" Text="BAS_CFB_Set_PackageReleaseNotes = '$(BAS_CFB_Set_PackageReleaseNotes)'" />
-    <Message Importance="High" Text="BAS_CFB_Set_PackageLicenseExpression = '$(BAS_CFB_Set_PackageLicenseExpression)'" />
-    <Message Importance="High" Text="BAS_CFB_Set_PackageRequireLicenseAcceptance = '$(BAS_CFB_Set_PackageRequireLicenseAcceptance)'" />
-    <Message Importance="High" Text="BAS_CFB_Set_PackageId = '$(BAS_CFB_Set_PackageId)'" />
-    <Message Importance="High" Text="Authors = '$(Authors)'" />
-    <Message Importance="High" Text="PackageReleaseNotes = '$(PackageReleaseNotes)'" />
-    <Message Importance="High" Text="PackageLicenseExpression = '$(PackageLicenseExpression)'" />
-    <Message Importance="High" Text="PackageRequireLicenseAcceptance = '$(PackageRequireLicenseAcceptance)'" />
-    <Message Importance="High" Text="PackageId = '$(PackageId)'" />
+    <Message Importance="High" Text="  BAS_CFB_Set_Authors = '$(BAS_CFB_Set_Authors)'" />
+    <Message Importance="High" Text="  BAS_CFB_Set_PackageReleaseNotes = '$(BAS_CFB_Set_PackageReleaseNotes)'" />
+    <Message Importance="High" Text="  BAS_CFB_Set_PackageLicenseExpression = '$(BAS_CFB_Set_PackageLicenseExpression)'" />
+    <Message Importance="High" Text="  BAS_CFB_Set_PackageRequireLicenseAcceptance = '$(BAS_CFB_Set_PackageRequireLicenseAcceptance)'" />
+    <Message Importance="High" Text="  BAS_CFB_Set_PackageId = '$(BAS_CFB_Set_PackageId)'" />
+    <Message Importance="High" Text="  Authors = '$(Authors)'" />
+    <Message Importance="High" Text="  PackageReleaseNotes = '$(PackageReleaseNotes)'" />
+    <Message Importance="High" Text="  PackageLicenseExpression = '$(PackageLicenseExpression)'" />
+    <Message Importance="High" Text="  PackageRequireLicenseAcceptance = '$(PackageRequireLicenseAcceptance)'" />
+    <Message Importance="High" Text="  PackageId = '$(PackageId)'" />
     <Message Importance="High" Text="==BAS_CFB_Properties - end shared ($(MSBuildProjectName))==" />
   </Target>
   
