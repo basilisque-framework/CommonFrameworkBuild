@@ -1,4 +1,4 @@
-# Copyright 2023 Alexander Stärk
+# Copyright 2023-2025 Alexander Stärk
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -33,4 +33,6 @@ jobs:
     uses: basilisque-framework/CommonBuild/.github/workflows/Common-Build.yml@release/v1.0
     with:
       basBuildType: 'CI'
+      sonarProjectKey: 'basilisque-framework_CommonFrameworkBuild'
+      sonarOrganization: 'basilisque-framework'
     secrets: inherit
