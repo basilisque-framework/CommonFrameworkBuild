@@ -31,4 +31,4 @@ Simply installing this NuGet package will automatically include the contained .p
 For more information about how this can be configured, please see the [GitHub page](https://github.com/basilisque-framework/CommonFrameworkBuild).
 
 ## License
-The Basilisque framework (including this repository) is licensed under the [Apache License, Version 2.0](LICENSE.txt).
+The Basilisque framework (including this repository) is licensed under the [Apache License, Version 2.0](https://github.com/basilisque-framework/CommonFrameworkBuild/blob/main/LICENSE.txt).
