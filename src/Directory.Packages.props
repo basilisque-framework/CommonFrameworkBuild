@@ -1,5 +1,5 @@
 <!--
-   Copyright 2024-2025 Alexander Stärk
+   Copyright 2024-2026 Alexander Stärk
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -21,6 +21,6 @@
   
   <!-- define NuGet package versions -->
   <ItemGroup>
-    <PackageVersion Include="Basilisque.CommonBuild" Version="[1.0.0,1.1)" />
+    <PackageVersion Include="Basilisque.CommonBuild" Version="[2.0.0-Preview00007,2.1)" />
   </ItemGroup>
 </Project>
