@@ -101,5 +101,11 @@ If you want to log the properties, that are set by this project, you can set the
       <BAS_CFB_Log_Properties>true</BAS_CFB_Log_Properties>
     </PropertyGroup>
 
+## Tests
+Package integration tests cover the framework-specific configuration and a small
+set of CommonBuild inheritance smoke tests on .NET 8 and .NET 10. See
+[the test workflow and coverage](tests/README.md) for local execution details.
+CI and manual builds run these tests before tagging or publishing packages.
+
 ## License
 The Basilisque framework (including this repository) is licensed under the [Apache License, Version 2.0](LICENSE.txt).
