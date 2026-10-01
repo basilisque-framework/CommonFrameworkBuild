@@ -45,6 +45,15 @@
 	</ItemGroup>
 	
 	<Import Project="$(MSBuildThisFileDirectory)build/Basilisque.CommonFrameworkBuild.targets" />
+
+	<Target Name="CreatePackagePlaceholder" BeforeTargets="_GetPackageFiles">
+		<MakeDir Directories="$(IntermediateOutputPath)" />
+		<WriteLinesToFile File="$(IntermediateOutputPath)_._" Lines="" Overwrite="true" WriteOnlyWhenDifferent="true" />
+		<ItemGroup>
+			<None Include="$(IntermediateOutputPath)_._" Pack="true" PackagePath="lib/$(TargetFramework)/" />
+			<FileWrites Include="$(IntermediateOutputPath)_._" />
+		</ItemGroup>
+	</Target>
 </Project>
 
 <!--

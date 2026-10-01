@@ -29,8 +29,8 @@ No sibling repository or locally built CommonBuild package is required.
 - The coupling between assembly and package naming; the benchmark naming exception
   and its explicit opt-in; spaces in the project name; non-GitHub and empty URLs.
 - Real inner builds on .NET 8 and .NET 10, plus shared properties in the outer build.
-- Producer package imports and dependency declaration; actual consumer package
-  metadata and both framework-specific assemblies.
+- Producer package imports, empty framework placeholder, and dependency declaration;
+  actual consumer package metadata and both framework-specific assemblies.
 - CommonBuild smoke tests: transitive dependency resolution without a direct
   reference, compiler/documentation settings, generated XML documentation, and the
   actual assembly version. The broader CommonBuild test suite is not duplicated.
@@ -78,9 +78,4 @@ tagging, release creation, or package pushes.
 `runDotnetTest: false` disables only the earlier shared test step for `src`, not the
 verification hook. No shared workflow changes are needed. The hook runs after Sonar
 analysis and does not currently import test coverage into Sonar.
-
-## Known Producer Warning
-
-The producer currently reports `NU5128`: it declares a `netstandard2.0` dependency
-group but ships no matching `lib`/`ref` assets. This predates the tests and is not
-suppressed by this infrastructure.
+The producer retains its CommonBuild dependency and packs an empty `lib/netstandard2.0/_._` placeholder.

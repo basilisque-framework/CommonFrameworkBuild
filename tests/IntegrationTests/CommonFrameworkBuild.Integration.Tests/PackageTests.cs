@@ -47,6 +47,15 @@ public class PackageTests
     }
 
     [Test]
+    public async Task Producer_Contains_Empty_Lib_Placeholder()
+    {
+        using var archive = ZipFile.OpenRead(ProducerPackage);
+        var placeholder = archive.GetEntry("lib/netstandard2.0/_._");
+        await Assert.That(placeholder).IsNotNull();
+        await Assert.That(placeholder!.Length).IsEqualTo(0L);
+    }
+
+    [Test]
     public async Task Producer_Declares_CommonBuild_As_A_Package_Dependency()
     {
         using var archive = ZipFile.OpenRead(ProducerPackage);
