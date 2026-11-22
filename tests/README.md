@@ -28,7 +28,7 @@ No sibling repository or locally built CommonBuild package is required.
   imports. A companion test confirms those values are overwritten without opt-outs.
 - The coupling between assembly and package naming; the benchmark naming exception
   and its explicit opt-in; spaces in the project name; non-GitHub and empty URLs.
-- Real inner builds on .NET 8 and .NET 10, plus shared properties in the outer build.
+- Real inner builds on .NET 10 and .NET 11, plus shared properties in the outer build.
 - Producer package imports, empty framework placeholder, and dependency declaration;
   actual consumer package metadata and both framework-specific assemblies.
 - CommonBuild smoke tests: transitive dependency resolution without a direct
@@ -41,7 +41,7 @@ The benchmark fixture intentionally has a space in its project name.
 
 ## Local Workflow
 
-Run from the repository root with .NET 8 and .NET 10 runtimes and a .NET 10+ SDK:
+Run from the repository root with .NET 10 and .NET 11 runtimes and a .NET 11+ SDK:
 
 ```powershell
 dotnet pack src/Basilisque.CommonFrameworkBuild.slnx -c Release
@@ -70,7 +70,7 @@ reusing stale contents of an identically versioned package.
 ## GitHub Actions
 
 CI and manual builds invoke the existing shared workflow's `verificationScript`
-hook after packing the producer. Both .NET 8 and .NET 10 are explicitly installed.
+hook after packing the producer. Both .NET 10 and .NET 11 are explicitly installed.
 The script reads the exact producer version from its nuspec, builds and packs
 the fixtures, and runs the tests. A failure in any command stops the job before
 tagging, release creation, or package pushes.

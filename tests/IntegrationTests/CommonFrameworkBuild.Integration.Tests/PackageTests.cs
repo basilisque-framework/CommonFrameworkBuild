@@ -84,7 +84,7 @@ public class PackageTests
     public async Task Consumer_Package_Contains_Both_Prefixed_Assemblies()
     {
         using var archive = ZipFile.OpenRead(ConsumerPackage);
-        foreach (var framework in new[] { "net8.0", "net10.0" })
+        foreach (var framework in new[] { "net10.0", "net11.0" })
             await Assert.That(archive.GetEntry($"lib/{framework}/Basilisque.Consumer.Framework.dll")).IsNotNull();
     }
 }
