@@ -1,4 +1,4 @@
-// Copyright 2026 Alexander Stärk
+﻿// Copyright 2026 Alexander Stärk
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-namespace Consumer.Framework;
+namespace Basilisque.Consumer.Framework;
 
 /// <summary>Identifies the assembly built with the installed framework build package.</summary>
 public sealed class FixtureInfo;

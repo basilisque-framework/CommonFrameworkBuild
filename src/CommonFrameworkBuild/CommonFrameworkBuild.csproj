@@ -14,46 +14,46 @@
    limitations under the License.
 -->
 <Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="$(MSBuildThisFileDirectory)build/Basilisque.CommonFrameworkBuild.props" />
-	
+  <Import Project="$(MSBuildThisFileDirectory)build/Basilisque.CommonFrameworkBuild.props" />
+
   <PropertyGroup>
-		<Description>This project provides common build configuration for all parts of the Basilisque framework. It is NOT recommended to use this unless you're developing a part of the framework.</Description>
-		<BAS_CB_Copyright_BeginYear>2023</BAS_CB_Copyright_BeginYear>
-		<PackageProjectUrl>https://github.com/basilisque-framework/CommonFrameworkBuild</PackageProjectUrl>
-		<PackageTags>Basilisque Build</PackageTags>
-		<!--<PackageIconUrl>images\icon.png</PackageIconUrl>-->
-		<!--<PackageIconUrl>https://github.com/basilisque-framework/CommonFrameworkBuild...raw...icon.png</PackageIconUrl>-->
-		<PackageReadmeFile>docs/README.md</PackageReadmeFile>
-		
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<MinClientVersion>4.0</MinClientVersion>
-		<IncludeBuildOutput>false</IncludeBuildOutput>
-		<DevelopmentDependency>true</DevelopmentDependency>
+    <Description>This project provides common build configuration for all parts of the Basilisque framework. It is NOT recommended to use this unless you're developing a part of the framework.</Description>
+    <BAS_CB_Copyright_BeginYear>2023</BAS_CB_Copyright_BeginYear>
+    <PackageProjectUrl>https://github.com/basilisque-framework/CommonFrameworkBuild</PackageProjectUrl>
+    <PackageTags>Basilisque Build</PackageTags>
+    <!--<PackageIconUrl>images\icon.png</PackageIconUrl>-->
+    <!--<PackageIconUrl>https://github.com/basilisque-framework/CommonFrameworkBuild...raw...icon.png</PackageIconUrl>-->
+    <PackageReadmeFile>docs/README.md</PackageReadmeFile>
+
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <MinClientVersion>4.0</MinClientVersion>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
 
-	<ItemGroup>
-		<None Include="NuGet-README.md" Pack="true" PackagePath="docs/README.md" />
-		<!--<None Include="../icon.png" Pack="true" PackagePath="images" />-->
-		<None Include="build/**" Pack="true" PackagePath="build" />
-		<None Include="buildMultiTargeting/**" Pack="true" PackagePath="buildMultiTargeting" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="NuGet-README.md" Pack="true" PackagePath="docs/README.md" />
+    <!--<None Include="../icon.png" Pack="true" PackagePath="images" />-->
+    <None Include="build/**" Pack="true" PackagePath="build" />
+    <None Include="buildMultiTargeting/**" Pack="true" PackagePath="buildMultiTargeting" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="Basilisque.CommonBuild">
-	    <PrivateAssets>none</PrivateAssets>
-	  </PackageReference>
-	</ItemGroup>
-	
-	<Import Project="$(MSBuildThisFileDirectory)build/Basilisque.CommonFrameworkBuild.targets" />
+  <ItemGroup>
+    <PackageReference Include="Basilisque.CommonBuild">
+      <PrivateAssets>none</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 
-	<Target Name="CreatePackagePlaceholder" BeforeTargets="_GetPackageFiles">
-		<MakeDir Directories="$(IntermediateOutputPath)" />
-		<WriteLinesToFile File="$(IntermediateOutputPath)_._" Lines="" Overwrite="true" WriteOnlyWhenDifferent="true" />
-		<ItemGroup>
-			<None Include="$(IntermediateOutputPath)_._" Pack="true" PackagePath="lib/$(TargetFramework)/" />
-			<FileWrites Include="$(IntermediateOutputPath)_._" />
-		</ItemGroup>
-	</Target>
+  <Import Project="$(MSBuildThisFileDirectory)build/Basilisque.CommonFrameworkBuild.targets" />
+
+  <Target Name="CreatePackagePlaceholder" BeforeTargets="_GetPackageFiles">
+    <MakeDir Directories="$(IntermediateOutputPath)" />
+    <WriteLinesToFile File="$(IntermediateOutputPath)_._" Lines="" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <ItemGroup>
+      <None Include="$(IntermediateOutputPath)_._" Pack="true" PackagePath="lib/$(TargetFramework)/" />
+      <FileWrites Include="$(IntermediateOutputPath)_._" />
+    </ItemGroup>
+  </Target>
 </Project>
 
 <!--

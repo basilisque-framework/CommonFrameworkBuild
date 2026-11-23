@@ -1,4 +1,4 @@
-// Copyright 2026 Alexander Stärk
+﻿// Copyright 2026 Alexander Stärk
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ public class FrameworkConventionsTests
     [Test]
     public async Task Benchmark_Can_Explicitly_Enable_Assembly_Prefix()
     {
-        var properties = await Fixture.Evaluate(BenchmarkProject, properties: new[] { "-p:BAS_CFB_Set_AssemblyName=true" });
+        var properties = await Fixture.Evaluate(BenchmarkProject, properties: ["-p:BAS_CFB_Set_AssemblyName=true"]);
         await Assert.That(properties["AssemblyName"]).IsEqualTo("Basilisque.Consumer Framework.Benchmarks");
         await Assert.That(properties["PackageId"]).IsEqualTo("Basilisque.Consumer Framework.Benchmarks");
     }

@@ -1,4 +1,4 @@
-// Copyright 2026 Alexander Stärk
+﻿// Copyright 2026 Alexander Stärk
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using Consumer.Framework;
+using Basilisque.Consumer.Framework;
 
 namespace CommonFrameworkBuild.Integration.Tests;
 
@@ -58,14 +58,14 @@ public class FrameworkDefaultsTests
     [Arguments("PackageRequireLicenseAcceptance", "false")]
     public async Task Opt_Out_Preserves_Preexisting_Value(string property, string expected)
     {
-        var properties = await Fixture.Evaluate(properties: new[] { "-p:FixtureCustomValues=true", $"-p:BAS_CFB_Set_{property}=false" });
+        var properties = await Fixture.Evaluate(properties: ["-p:FixtureCustomValues=true", $"-p:BAS_CFB_Set_{property}=false"]);
         await Assert.That(properties[property]).IsEqualTo(expected);
     }
 
     [Test]
     public async Task Defaults_Override_Custom_Values_Without_Opt_Out()
     {
-        var properties = await Fixture.Evaluate(properties: new[] { "-p:FixtureCustomValues=true" });
+        var properties = await Fixture.Evaluate(properties: ["-p:FixtureCustomValues=true"]);
         foreach (var property in new[] { "RootNamespace", "Authors", "PackageId", "PackageReleaseNotes", "PackageLicenseExpression", "PackageRequireLicenseAcceptance" })
             await Assert.That(properties[property]).IsEqualTo(Fixture.Property(property));
         await Assert.That(properties["AssemblyName"]).IsEqualTo("Basilisque.Consumer.Framework");
@@ -74,7 +74,7 @@ public class FrameworkDefaultsTests
     [Test]
     public async Task Disabling_Assembly_Renaming_Also_Disables_Default_PackageId_Renaming()
     {
-        var properties = await Fixture.Evaluate(properties: new[] { "-p:FixtureCustomValues=true", "-p:BAS_CFB_Set_AssemblyName=false" });
+        var properties = await Fixture.Evaluate(properties: ["-p:FixtureCustomValues=true", "-p:BAS_CFB_Set_AssemblyName=false"]);
         await Assert.That(properties["AssemblyName"]).IsEqualTo("Custom.Assembly");
         await Assert.That(properties["PackageId"]).IsEqualTo("Custom.Package");
     }
@@ -84,7 +84,7 @@ public class FrameworkDefaultsTests
     [Arguments("")]
     public async Task Non_GitHub_Url_Does_Not_Replace_Release_Notes(string projectUrl)
     {
-        var properties = await Fixture.Evaluate(properties: new[] { "-p:FixtureCustomValues=true", $"-p:PackageProjectUrl={projectUrl}" });
+        var properties = await Fixture.Evaluate(properties: ["-p:FixtureCustomValues=true", $"-p:PackageProjectUrl={projectUrl}"]);
         await Assert.That(properties["PackageReleaseNotes"]).IsEqualTo("Custom release notes");
     }
 }

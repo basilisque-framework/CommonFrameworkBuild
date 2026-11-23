@@ -16,7 +16,7 @@
 <Project>
   <!-- import the targets file that is shared between single and multi targeting builds -->
   <Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.Before.Shared.targets" />
-  
+
   <!-- Log all properties that are set by the Basilisque.CommonFrameworkBuild project -->
   <Target Name="LogBasilisqueCommonFrameworkBuildProperties" AfterTargets="PrepareForBuild" Condition="'$(BAS_CFB_Log_Properties)' == 'true'">
     <Message Importance="High" Text="==BAS_CFB_Properties - begin single targeting ($(MSBuildProjectName))==" />
@@ -26,7 +26,7 @@
     <Message Importance="High" Text="AssemblyName = '$(AssemblyName)'" />
     <Message Importance="High" Text="==BAS_CFB_Properties - end single targeting ($(MSBuildProjectName))==" />
   </Target>
-  
+
   <!-- import the targets file that is shared between single and multi targeting builds -->
   <Import Project="$(MSBuildThisFileDirectory)../buildMultiTargeting/Basilisque.CommonFrameworkBuild.After.Shared.targets" />
 </Project>

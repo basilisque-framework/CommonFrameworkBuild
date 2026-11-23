@@ -1,4 +1,4 @@
-// Copyright 2026 Alexander Stärk
+﻿// Copyright 2026 Alexander Stärk
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using Consumer.Framework;
+using Basilisque.Consumer.Framework;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
@@ -23,8 +23,11 @@ internal static class Fixture
 {
     public static Assembly Assembly => typeof(FixtureInfo).Assembly;
 
-    public static string Property(string name) => Assembly.GetCustomAttributes<AssemblyMetadataAttribute>()
-        .Single(attribute => attribute.Key == name).Value ?? throw new InvalidDataException($"Missing fixture property {name}.");
+    public static string Property(string name)
+    {
+        return Assembly.GetCustomAttributes<AssemblyMetadataAttribute>()
+            .Single(attribute => attribute.Key == name).Value ?? throw new InvalidDataException($"Missing fixture property {name}.");
+    }
 
     public static async Task<Dictionary<string, string>> Evaluate(string? projectPath = null, bool outerBuild = false, params string[] properties)
     {
@@ -62,6 +65,6 @@ internal static class Fixture
             throw new InvalidOperationException($"MSBuild evaluation failed ({process.ExitCode}).\n{output}\n{await errorTask}");
         using var document = JsonDocument.Parse(output);
         return document.RootElement.GetProperty("Properties").EnumerateObject()
-            .ToDictionary(property => property.Name, property => property.Value.GetString()!);
+            .ToDictionary(static property => property.Name, static property => property.Value.GetString()!);
     }
 }

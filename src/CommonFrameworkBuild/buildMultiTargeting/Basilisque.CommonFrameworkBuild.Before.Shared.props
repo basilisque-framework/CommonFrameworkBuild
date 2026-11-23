@@ -22,13 +22,13 @@
     <BAS_CFB_Set_PackageRequireLicenseAcceptance Condition="'$(BAS_CFB_Set_PackageRequireLicenseAcceptance)' == ''">true</BAS_CFB_Set_PackageRequireLicenseAcceptance>
     <BAS_CFB_Set_PackageId Condition="'$(BAS_CFB_Set_PackageId)' == '' AND '$(BAS_CFB_Set_AssemblyName)' == 'true'">true</BAS_CFB_Set_PackageId>
   </PropertyGroup>
-  
+
   <!-- general build properties -->
   <PropertyGroup>
     <AssemblyName Condition="'$(BAS_CFB_Set_AssemblyName)' == 'true'">Basilisque.$(MSBuildProjectName)</AssemblyName>
     <PackageId Condition="'$(BAS_CFB_Set_PackageId)' == 'true'">$(AssemblyName)</PackageId>
   </PropertyGroup>
-  
+
   <!-- NuGet package properties and project info -->
   <PropertyGroup>
     <Authors Condition="'$(BAS_CFB_Set_Authors)' == 'true'">Alexander Stärk</Authors>

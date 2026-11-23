@@ -29,7 +29,7 @@
     <Message Importance="High" Text="  PackageId = '$(PackageId)'" />
     <Message Importance="High" Text="==BAS_CFB_Properties - end shared ($(MSBuildProjectName))==" />
   </Target>
-  
+
   <PropertyGroup>
     <PackageReleaseNotes Condition="'$(BAS_CFB_Set_PackageReleaseNotes)' == 'true' AND $(PackageProjectUrl.StartsWith('https://github.com')) == 'true'">$(PackageProjectUrl)/releases</PackageReleaseNotes>
     <PackageLicenseExpression Condition="'$(BAS_CFB_Set_PackageLicenseExpression)' == 'true'">Apache-2.0</PackageLicenseExpression>

@@ -1,4 +1,4 @@
-// Copyright 2026 Alexander Stärk
+﻿// Copyright 2026 Alexander Stärk
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,9 +29,9 @@ public class CommonBuildInheritanceTests
         await Assert.That(directDependencies.TryGetProperty("Basilisque.CommonBuild", out _)).IsFalse();
 
         var libraries = assets.RootElement.GetProperty("targets").GetProperty(framework);
-        var frameworkBuild = libraries.EnumerateObject().Single(library => library.Name.StartsWith("Basilisque.CommonFrameworkBuild/", StringComparison.Ordinal));
+        var frameworkBuild = libraries.EnumerateObject().Single(static library => library.Name.StartsWith("Basilisque.CommonFrameworkBuild/", StringComparison.Ordinal));
         await Assert.That(frameworkBuild.Value.GetProperty("dependencies").TryGetProperty("Basilisque.CommonBuild", out _)).IsTrue();
-        await Assert.That(libraries.EnumerateObject().Any(library => library.Name.StartsWith("Basilisque.CommonBuild/", StringComparison.Ordinal))).IsTrue();
+        await Assert.That(libraries.EnumerateObject().Any(static library => library.Name.StartsWith("Basilisque.CommonBuild/", StringComparison.Ordinal))).IsTrue();
     }
 
     [Test]
