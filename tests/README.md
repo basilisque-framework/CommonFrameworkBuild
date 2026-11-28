@@ -35,8 +35,8 @@ No sibling repository or locally built CommonBuild package is required.
   reference, compiler/documentation settings, generated XML documentation, and the
   actual assembly version. The broader CommonBuild test suite is not duplicated.
 
-The standard fixture uses fixed version inputs (`7.3.1`, CI by default) and disables
-GitVersion. It tests the inherited version target, not GitVersion's own calculation.
+The standard fixture sets the MSBuild `Version` to `7.3.1-ci.0`. It verifies that
+projects without a GitVersion reference retain their own package and assembly versions.
 The benchmark fixture intentionally has a space in its project name.
 
 ## Local Workflow
@@ -59,7 +59,7 @@ For an exact producer version, use the same `-p:BAS_CFB_PackageVersionUnderTest=
 on all test-solution commands, or use the CI verification script after packing:
 
 ```powershell
-pwsh -File .github/scripts/Test-Integration.ps1 -PackagePath "<path-to-current-nupkg>" -BuildType CI
+pwsh -File .github/scripts/Test-Integration.ps1 -PackagePath "<path-to-current-nupkg>"
 ```
 
 The selected package must be in `src/artifacts/package/release`, the local feed
@@ -69,13 +69,12 @@ reusing stale contents of an identically versioned package.
 
 ## GitHub Actions
 
-CI and manual builds invoke the existing shared workflow's `verificationScript`
-hook after packing the producer. Both .NET 10 and .NET 11 are explicitly installed.
+CI and manual builds use the shared workflow. Its verification job
+runs `verificationScript` after the pack job. Both .NET 10 and .NET 11 are explicitly installed.
 The script reads the exact producer version from its nuspec, builds and packs
 the fixtures, and runs the tests. A failure in any command stops the job before
 tagging, release creation, or package pushes.
 
-`runDotnetTest: false` disables only the earlier shared test step for `src`, not the
-verification hook. No shared workflow changes are needed. The hook runs after Sonar
-analysis and does not currently import test coverage into Sonar.
+`runDotnetTest: false` disables the shared test step for the producer solution under `src`.
+The verification job runs the integration suite after Sonar analysis.
 The producer retains its CommonBuild dependency and packs an empty `lib/netstandard2.0/_._` placeholder.

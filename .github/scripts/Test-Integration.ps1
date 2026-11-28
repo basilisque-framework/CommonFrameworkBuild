@@ -12,10 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-param(
-    [string] $PackagePath,
-    [string] $BuildType = $env:BAS_CB_BUILD_TYPE
-)
+param([string] $PackagePath)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
@@ -33,10 +30,6 @@ $repositoryRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'
 $previousPackagesPath = $env:NUGET_PACKAGES
 Push-Location $repositoryRoot
 try {
-    if ([string]::IsNullOrWhiteSpace($BuildType)) {
-        $BuildType = 'CI'
-    }
-
     if ([string]::IsNullOrWhiteSpace($PackagePath)) {
         $artifactsPath = $env:BAS_CB_ARTIFACTS_PATH
         if ([string]::IsNullOrWhiteSpace($artifactsPath)) {
@@ -74,7 +67,7 @@ try {
 
     $env:NUGET_PACKAGES = Join-Path $repositoryRoot "tests/artifacts/ci-nuget/$([guid]::NewGuid().ToString('N'))"
     $solution = Join-Path $repositoryRoot 'tests/Basilisque.CommonFrameworkBuild.Tests.slnx'
-    $properties = @("-p:BAS_CFB_PackageVersionUnderTest=$packageVersion", "-p:BAS_CB_BuildType=$BuildType")
+    $properties = @("-p:BAS_CFB_PackageVersionUnderTest=$packageVersion")
     Write-Host "Testing CommonFrameworkBuild package $packageVersion ($PackagePath)"
 
     Invoke-Dotnet -Arguments (@('build', $solution, '-c', 'Release', '--disable-build-servers') + $properties)

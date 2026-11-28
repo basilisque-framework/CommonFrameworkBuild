@@ -20,7 +20,7 @@
   <ItemGroup>
     <PackageReference Include="Basilisque.CommonFrameworkBuild" GeneratePathProperty="true" />
   </ItemGroup>
-  <Target Name="CaptureFixtureProperties" BeforeTargets="GetAssemblyAttributes" DependsOnTargets="BAS_CB_SetVersionProperties">
+  <Target Name="CaptureFixtureProperties" BeforeTargets="GetAssemblyAttributes">
     <ItemGroup>
       <AssemblyMetadata Include="RootNamespace" Value="$(RootNamespace)" />
       <AssemblyMetadata Include="Authors" Value="$(Authors)" />

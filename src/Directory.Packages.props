@@ -21,13 +21,14 @@
 
   <!-- define NuGet package versions -->
   <ItemGroup>
-    <PackageVersion Include="Basilisque.CommonBuild" Version="[2.0.0-RC00035,2.1)" />
+    <PackageVersion Include="Basilisque.CommonBuild" Version="[2.0.0-rc.37,2.1)" />
     <PackageVersion Include="GitVersion.MsBuild" Version="7.0.1" />
   </ItemGroup>
 
   <!-- import packages for all projects -->
   <ItemGroup>
     <PackageReference Include="GitVersion.MsBuild">
+      <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>

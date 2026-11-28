@@ -44,8 +44,9 @@ public class CommonBuildInheritanceTests
     }
 
     [Test]
-    public async Task CommonBuild_Version_Target_Changes_The_Actual_Assembly()
+    public async Task Fixture_Uses_Its_Project_Version_Without_GitVersion()
     {
-        await Assert.That(Fixture.Assembly.GetName().Version).IsEqualTo(new Version(7, 3, 0, 0));
+        await Assert.That(Fixture.Property("PackageVersion")).IsEqualTo("7.3.1-ci.0");
+        await Assert.That(Fixture.Assembly.GetName().Version).IsEqualTo(new Version(7, 3, 1, 0));
     }
 }

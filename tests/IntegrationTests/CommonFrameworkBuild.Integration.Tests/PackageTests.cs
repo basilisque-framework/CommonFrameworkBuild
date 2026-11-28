@@ -56,13 +56,14 @@ public class PackageTests
     }
 
     [Test]
-    public async Task Producer_Declares_CommonBuild_As_A_Package_Dependency()
+    public async Task Producer_Declares_CommonBuild_But_Keeps_GitVersion_Private()
     {
         using var archive = ZipFile.OpenRead(ProducerPackage);
         var metadata = readPackageMetadata(archive, "Basilisque.CommonFrameworkBuild");
-        var dependency = metadata.Descendants(metadata.Name.Namespace + "dependency")
-            .Single(static element => element.Attribute("id")?.Value == "Basilisque.CommonBuild");
+        var dependencies = metadata.Descendants(metadata.Name.Namespace + "dependency").ToArray();
+        var dependency = dependencies.Single(static element => element.Attribute("id")?.Value == "Basilisque.CommonBuild");
         await Assert.That(string.IsNullOrWhiteSpace(dependency.Attribute("version")?.Value)).IsFalse();
+        await Assert.That(dependencies.Any(static element => element.Attribute("id")?.Value == "GitVersion.MsBuild")).IsFalse();
     }
 
     [Test]

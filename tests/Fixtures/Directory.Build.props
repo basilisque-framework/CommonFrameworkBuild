@@ -16,11 +16,7 @@
 <Project>
   <Import Project="../Directory.Build.props" />
   <PropertyGroup>
-    <BAS_CB_Use_GitVersion>false</BAS_CB_Use_GitVersion>
-    <BAS_CB_BuildType>CI</BAS_CB_BuildType>
-    <BAS_CB_VersionMajor>7</BAS_CB_VersionMajor>
-    <BAS_CB_VersionMinor>3</BAS_CB_VersionMinor>
-    <BAS_CB_VersionBuild>1</BAS_CB_VersionBuild>
+    <Version>7.3.1-ci.0</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(FixtureCustomValues)' == 'true'">
     <RootNamespace>Custom.Namespace</RootNamespace>
