@@ -72,7 +72,11 @@ try {
 
     Invoke-Dotnet -Arguments (@('build', $solution, '-c', 'Release', '--disable-build-servers') + $properties)
     Invoke-Dotnet -Arguments (@('pack', $solution, '-c', 'Release', '--no-build') + $properties)
-    Invoke-Dotnet -Arguments (@('test', '--solution', $solution, '-c', 'Release', '--no-build') + $properties)
+    $testArguments = @('test', '--solution', $solution, '-c', 'Release', '--no-build') + $properties
+    if ($env:BAS_CB_TEST_RESULTS_PATH) {
+        $testArguments += @('--results-directory', $env:BAS_CB_TEST_RESULTS_PATH, '--', '--report-trx')
+    }
+    Invoke-Dotnet -Arguments $testArguments
 }
 finally {
     $env:NUGET_PACKAGES = $previousPackagesPath
